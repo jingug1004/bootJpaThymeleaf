@@ -1,40 +1,91 @@
 package org.zerock.guestbook.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-/**
- * Created by A on 2022-08-31 오전 10:09
- * guestbook / org.zerock.guestbook.controller
- * No pain, No gain!
- * What :
- * Why :
- * How :
- * << 개정이력(Modification Information) >>
- * 수정일         수정자          수정내용
- * -------       --------       ---------------------------
- * 2018/04/01     김진국          최초 생성
- * 2017/05/27     이몽룡          인증이 필요없는 URL을 패스하는 로직 추가
- *
- * @author 개발팀 김진국
- * @version 1.0
- * @see
- * @since 2018/04/01
- */
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.guestbook.dto.GuestbookDTO;
+import org.zerock.guestbook.dto.PageRequestDTO;
+import org.zerock.guestbook.service.GuestbookService;
 
 @Controller
 @RequestMapping("/guestbook")
 @Log4j2
+@RequiredArgsConstructor
 public class GuestbookController {
 
-    @GetMapping({"/", "/list"})
-    public String list() {
-        log.info("l~ list................");
+    private final GuestbookService service; //final로 선언
 
-        return "/guestbook/list";
+    @GetMapping("/")
+    public String index() {
+
+        return "redirect:/guestbook/list";
     }
 
+    @GetMapping("/list")
+    public void list(PageRequestDTO pageRequestDTO, Model model) {
+        log.info("l~ list............." + pageRequestDTO);
+        model.addAttribute("result", service.getList(pageRequestDTO));
 
+    }
+
+    @GetMapping("/register")
+    public void register() {
+        log.info("l~ regiser get...");
+    }
+
+    @PostMapping("/register")
+    public String registerPost(GuestbookDTO dto, RedirectAttributes redirectAttributes) {
+        log.info("l~ dto..." + dto);
+
+        //새로 추가된 엔티티의 번호
+        Long gno = service.register(dto);
+        redirectAttributes.addFlashAttribute("msg", gno);
+
+        return "redirect:/guestbook/list";
+    }
+
+    //    @GetMapping("/read")
+    @GetMapping({"/read", "/modify"})
+    public void read(long gno, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+        log.info("l~ gno : " + gno);
+        GuestbookDTO dto = service.read(gno);
+
+        model.addAttribute("dto", dto);
+    }
+
+    @PostMapping("/remove")
+    public String remove(long gno, RedirectAttributes redirectAttributes) {
+        log.info("l~ gno: " + gno);
+        service.remove(gno);
+        redirectAttributes.addFlashAttribute("msg", gno);
+
+        return "redirect:/guestbook/list";
+    }
+
+    @PostMapping("/modify")
+    public String modify(GuestbookDTO dto,
+                         @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
+                         RedirectAttributes redirectAttributes) {
+
+        log.info("l~ post modify.........................................");
+        log.info("l~ dto: " + dto);
+
+        service.modify(dto);
+
+        redirectAttributes.addAttribute("page", requestDTO.getPage());
+        redirectAttributes.addAttribute("type", requestDTO.getType());
+        redirectAttributes.addAttribute("keyword", requestDTO.getKeyword());
+
+        redirectAttributes.addAttribute("gno", dto.getGno());
+
+
+        return "redirect:/guestbook/read";
+
+    }
 }

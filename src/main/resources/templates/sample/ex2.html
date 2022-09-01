@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,16 +14,16 @@
 
 
 <ul>
-    <li th:each="dto, state : ${list}" >
+    <li th:each="dto, state : ${list}">
         <span th:if="${dto.sno % 5 == 0}" th:text="${'-----------------' +dto.sno}"></span>
-        <span th:unless="${dto.sno % 5 == 0}" th:text="${dto.first}"></span>
+        <span th:text="${dto.first}" th:unless="${dto.sno % 5 == 0}"></span>
     </li>
 </ul>
 
 <hr/>
 
 <ul>
-    <li th:each="dto, state : ${list}"  th:text="${dto.sno  % 5 == 0 }? ${dto.sno}">
+    <li th:each="dto, state : ${list}" th:text="${dto.sno  % 5 == 0 }? ${dto.sno}">
     </li>
 </ul>
 
@@ -34,7 +34,7 @@
 </style>
 
 <ul>
-    <li th:each="dto, state : ${list}"  th:class="${dto.sno % 5 == 0}?'target'" th:text="${dto}">
+    <li th:class="${dto.sno % 5 == 0}?'target'" th:each="dto, state : ${list}" th:text="${dto}">
     </li>
 </ul>
 
