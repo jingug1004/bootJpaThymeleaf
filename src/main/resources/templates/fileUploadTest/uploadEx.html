@@ -21,7 +21,7 @@
 
 <script>
 
-    $('.uploadBtn').click(function () {
+    $('.uploadBtn').click(function( ) {
 
         var formData = new FormData();
 
@@ -42,20 +42,20 @@
             contentType: false,
             data: formData,
             type: 'POST',
-            dataType: 'json',
-            success: function (result) {
+            dataType:'json',
+            success: function(result){
                 console.log(result);
                 //나중에 화면 처리
                 showUploadedImages(result);
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown){
                 console.log(textStatus);
             }
 
         }); //$.ajax
     }); //end click
 
-    function showUploadedImages(arr) {
+    function showUploadedImages(arr){
 
         console.log(arr);
 
@@ -63,17 +63,17 @@
 
         var str = "";
 
-        for (var i = 0; i < arr.length; i++) {
+        for(var i = 0; i < arr.length; i++){
             str += "<div>";
-            str += "<img src='/display?fileName=" + arr[i].thumbnailURL + "'>";
-            str += "<button class='removeBtn' data-name='" + arr[i].imageURL + "'>REMOVE</button>"
+            str += "<img src='/display?fileName="+arr[i].thumbnailURL+"'>";
+            str += "<button class='removeBtn' data-name='"+arr[i].imageURL +"'>REMOVE</button>"
             str += "</div>";
         }
         divArea.append(str);
 
     }
 
-    $(".uploadResult").on("click", ".removeBtn", function (e) {
+    $(".uploadResult").on("click", ".removeBtn", function(e){
 
         var target = $(this);
         var fileName = target.data("name");
@@ -81,14 +81,15 @@
 
         console.log(fileName);
 
-        $.post('/removeFile', {fileName: fileName}, function (result) {
+        $.post('/removeFile', {fileName: fileName}, function(result){
             console.log(result);
-            if (result === true) {
+            if(result === true){
                 targetDiv.remove();
             }
-        })
+        } )
 
     });
+
 
 
 </script>
