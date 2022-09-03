@@ -38,6 +38,7 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    compileOnly group: 'net.coobird', name: 'thumbnailator', version: '0.4.12'
     annotationProcessor(
             "javax.persistence:javax.persistence-api",
             "javax.annotation:javax.annotation-api",
