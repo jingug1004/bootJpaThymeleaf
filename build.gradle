@@ -29,8 +29,12 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.projectlombok:lombok'
@@ -39,6 +43,10 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok'
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     compileOnly group: 'net.coobird', name: 'thumbnailator', version: '0.4.12'
+    runtimeOnly 'com.h2database:h2:'
+    testImplementation 'org.springframework.security:spring-security-test:5.5.2'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
+    implementation 'org.modelmapper:modelmapper:2.1.1'
     annotationProcessor(
             "javax.persistence:javax.persistence-api",
             "javax.annotation:javax.annotation-api",
