@@ -15,7 +15,7 @@ import org.zerock.guestbook.shop.entity.Mem;
 import org.zerock.guestbook.shop.repository.CartItemRepository;
 import org.zerock.guestbook.shop.repository.CartRepository;
 import org.zerock.guestbook.shop.repository.ItemRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.List;
 public class CartService {
 
     private final ItemRepository itemRepository;
-    private final MemberRepository memberRepository;
+    private final MemRepository memberRepository;
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
     private final OrderService orderService;

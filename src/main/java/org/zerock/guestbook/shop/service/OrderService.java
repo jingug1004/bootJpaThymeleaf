@@ -13,7 +13,7 @@ import org.zerock.guestbook.shop.dto.OrderItemDto;
 import org.zerock.guestbook.shop.entity.*;
 import org.zerock.guestbook.shop.repository.ItemImgRepository;
 import org.zerock.guestbook.shop.repository.ItemRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 import org.zerock.guestbook.shop.repository.OrderRepository;
 
 import javax.persistence.EntityNotFoundException;
@@ -27,7 +27,7 @@ public class OrderService {
 
     private final ItemRepository itemRepository;
 
-    private final MemberRepository memberRepository;
+    private final MemRepository memberRepository;
 
     private final OrderRepository orderRepository;
 

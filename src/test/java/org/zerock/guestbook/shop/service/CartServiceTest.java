@@ -13,7 +13,7 @@ import org.zerock.guestbook.shop.entity.Item;
 import org.zerock.guestbook.shop.entity.Mem;
 import org.zerock.guestbook.shop.repository.CartItemRepository;
 import org.zerock.guestbook.shop.repository.ItemRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -28,7 +28,7 @@ class CartServiceTest {
     ItemRepository itemRepository;
 
     @Autowired
-    MemberRepository memberRepository;
+    MemRepository memberRepository;
 
     @Autowired
     CartService cartService;

@@ -14,7 +14,7 @@ import org.zerock.guestbook.shop.entity.Mem;
 import org.zerock.guestbook.shop.entity.Order;
 import org.zerock.guestbook.shop.entity.OrderItem;
 import org.zerock.guestbook.shop.repository.ItemRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 import org.zerock.guestbook.shop.repository.OrderRepository;
 
 import javax.persistence.EntityNotFoundException;
@@ -30,7 +30,7 @@ class OrderServiceTest {
     @Autowired
     ItemRepository itemRepository;
     @Autowired
-    MemberRepository memberRepository;
+    MemRepository memberRepository;
     @Autowired
     private OrderService orderService;
     @Autowired

@@ -8,14 +8,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.guestbook.shop.entity.Mem;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class MemberService implements UserDetailsService {
 
-    private final MemberRepository memberRepository;
+    private final MemRepository memberRepository;
 
     public Mem saveMember(Mem member) {
         validateDuplicateMember(member);

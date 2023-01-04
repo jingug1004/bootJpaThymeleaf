@@ -9,7 +9,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.guestbook.shop.dto.MemberFormDto;
 import org.zerock.guestbook.shop.repository.CartRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
@@ -27,7 +27,7 @@ class CartTest {
     CartRepository cartRepository;
 
     @Autowired
-    MemberRepository memberRepository;
+    MemRepository memberRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;

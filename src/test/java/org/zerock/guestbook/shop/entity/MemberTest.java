@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
@@ -19,7 +19,7 @@ import javax.persistence.PersistenceContext;
 public class MemberTest {
 
     @Autowired
-    MemberRepository memberRepository;
+    MemRepository memberRepository;
 
     @PersistenceContext
     EntityManager em;

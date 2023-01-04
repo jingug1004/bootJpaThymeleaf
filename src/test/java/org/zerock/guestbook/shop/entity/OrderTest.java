@@ -8,7 +8,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.guestbook.shop.constant.ItemSellStatus;
 import org.zerock.guestbook.shop.repository.ItemRepository;
-import org.zerock.guestbook.shop.repository.MemberRepository;
+import org.zerock.guestbook.shop.repository.MemRepository;
 import org.zerock.guestbook.shop.repository.OrderItemRepository;
 import org.zerock.guestbook.shop.repository.OrderRepository;
 
@@ -34,7 +34,7 @@ class OrderTest {
     EntityManager em;
 
     @Autowired
-    MemberRepository memberRepository;
+    MemRepository memberRepository;
 
     @Autowired
     OrderItemRepository orderItemRepository;
