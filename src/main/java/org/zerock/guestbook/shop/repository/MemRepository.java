@@ -10,4 +10,5 @@ public interface MemRepository extends JpaRepository<Mem, Long>, QuerydslPredica
 
     Mem findByEmail(String email);
 
+
 }
