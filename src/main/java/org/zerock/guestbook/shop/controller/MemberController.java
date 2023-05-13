@@ -1,7 +1,6 @@
 package org.zerock.guestbook.shop.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.zerock.guestbook.shop.dto.MemberFormDto;
-import org.zerock.guestbook.shop.entity.Mem;
 import org.zerock.guestbook.shop.service.MemberService;
 
 import javax.validation.Valid;
@@ -22,7 +20,7 @@ import javax.validation.Valid;
 public class MemberController {
 
     private final MemberService memberService;
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
 
     @GetMapping(value = "/new")
     public String memberForm(Model model) {
@@ -38,8 +36,8 @@ public class MemberController {
         }
 
         try {
-            Mem member = Mem.createMember(memberFormDto, passwordEncoder);
-            memberService.saveMember(member);
+//            Mem member = Mem.createMember(memberFormDto, passwordEncoder);
+//            memberService.saveMember(member);
         } catch (IllegalStateException e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "shop/member/memberForm";
