@@ -1,7 +1,6 @@
 package org.zerock.guestbook.shop.entity;
 
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.zerock.guestbook.shop.constant.Role;
 import org.zerock.guestbook.shop.dto.MemberFormDto;
 
@@ -34,9 +33,9 @@ public class Mem extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public static Mem createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
+    public static Mem createMember(MemberFormDto memberFormDto) {
 
-        String password = passwordEncoder.encode(memberFormDto.getPassword());
+        String password = memberFormDto.getPassword();
 
         return Mem.builder()
                 .name(memberFormDto.getName())
