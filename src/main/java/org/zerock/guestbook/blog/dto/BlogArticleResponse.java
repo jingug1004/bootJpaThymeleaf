@@ -9,16 +9,14 @@ import org.zerock.guestbook.blog.domain.BlogArticleEntity;
 @Setter
 @Builder
 @ToString
-public class BlogAddArticleRequest {
+public class BlogArticleResponse {
 
     private String blogTitle;
     private String blogContent;
 
-    public BlogArticleEntity toEntity() {
-        return BlogArticleEntity.builder()
-                .blogTitle(blogTitle)
-                .blogContent(blogContent)
-                .build();
-    }
 
+    public BlogArticleResponse(BlogArticleEntity blogArticleEntity) {
+        this.blogTitle = blogArticleEntity.getBlogTitle();
+        this.blogContent = blogArticleEntity.getBlogContent();
+    }
 }

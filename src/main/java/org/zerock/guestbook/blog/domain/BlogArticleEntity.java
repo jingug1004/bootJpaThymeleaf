@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Builder
 @ToString
-public class BlogArticle {
+public class BlogArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +26,8 @@ public class BlogArticle {
     @Column
     private String blogContent;
 
-//    @Builder
-//    public BlogArticle(String title, String content) {
-//        this.title = title;
-//        this.content = content;
-//    }
-
+    public void update(String blogTitle, String blogContent) {
+        this.blogTitle = blogTitle;
+        this.blogContent = blogContent;
+    }
 }
