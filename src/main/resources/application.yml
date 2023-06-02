@@ -13,7 +13,7 @@ spring:
         format_sql: true
         default_batch_fetch_size: 1000
     database-platform: org.hibernate.dialect.MySQL8Dialect
-    defer-datasource-initialization: false
+    defer-datasource-initialization: true
   thymeleaf:
     cache: false
   servlet:

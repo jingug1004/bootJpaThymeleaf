@@ -2,8 +2,11 @@ package org.zerock.guestbook.blog.domain;
 
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +28,14 @@ public class BlogArticleEntity {
 
     @Column
     private String blogContent;
+
+    @CreatedDate
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     public void update(String blogTitle, String blogContent) {
         this.blogTitle = blogTitle;
