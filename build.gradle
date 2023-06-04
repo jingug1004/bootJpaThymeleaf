@@ -47,6 +47,17 @@ dependencies {
 //    testImplementation 'org.springframework.security:spring-security-test:5.5.2'
 //    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
     implementation 'org.modelmapper:modelmapper:2.1.1'
+
+// 스프링 부트 3로 블로그 제대로 만들기 - 스프링 시큐리티
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    developmentOnly 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//    testImplementation 'org.springframework.security:spring-security-test'
+//
+
+//    JWT로 로그인/로그아웃 구현하기
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
     annotationProcessor(
             "javax.persistence:javax.persistence-api",
             "javax.annotation:javax.annotation-api",
